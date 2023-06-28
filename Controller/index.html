@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="toggle.css">
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.min.js" type="text/javascript"></script>
+		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="connection.js"></script>
+		<script type="text/javascript" src="function.js"></script>
+		<meta charset="utf-8">
+		<title>Demo</title>
+	</head>
+ 
+	<body style='text-align:center;background-color:#333333;color:white;font-size:24px' onload="connect(), getDat()">
+		<h1 style='color:#92fcab'><b>SMART FLOWER RACK HUB</b></h1>
+		<p name="topic"><b>Pump</b>
+		<label class="switch" >
+			<input type="checkbox" name="ctrl" id="pump" onchange="control(this)">
+			<span class="slider round"></span>
+		</label>
+		</p>
+		<p id="pumpstat"></p>
+		<p name="topic"><b>Valve</b></p>
+		<p>V1
+		<label class="switch" >
+			<input type="checkbox" name="ctrl" id="v1" onchange="control(this)">
+			<span class="slider round"></span>
+		</label>
+		</p>
+		<p>V2
+		<label class="switch" >
+			<input type="checkbox" name="ctrl" id="v2" onchange="control(this)">
+			<span class="slider round"></span>
+		</label>
+		</p>
+		<p>V3
+		<label class="switch" >
+			<input type="checkbox" name="ctrl" id="v3" onchange="control(this)">
+			<span class="slider round"></span>
+		</label>
+		</p>
+		<p id="v1"></p>
+		<p name="topic"><b>Upper</b>
+		<label class="switch" >
+			<input type="checkbox" name="ctrl" id="upper" onchange="control(this)">
+			<span class="slider round"></span>
+		</label>
+		</p>
+		<p id="uppertray"></p>
+		<p name="topic"><b>Lower</b>
+		<label class="switch" >
+			<input type="checkbox" name="ctrl" id="lower" onchange="control(this)">
+			<span class="slider round"></span>
+		</label>
+		</p>
+		<p id="lowertray"></p>
+		<p name="topic"><b>Auto</b>
+		<label class="switch" >
+			<input type="checkbox" id="auto" onchange="control(this)">
+			<span class="slider round"></span>
+		</label>
+		</p>
+		<p id="autostat"></p>
+		<button class="btn btn-default" onclick="getDat()">Refresh</button>
+		<p style='color:#ceeeff' name="topic"><b>Humid level</b></p>
+		<p id="humid0">Updating...</p>
+		<p id="humid1">Updating...</p>
+		<p id="humid2">Updating...</p>
+		<p style='color:#f4cd41' name="topic"><b>Light level</b></p>
+		<p id="light">Updating...</p>
+		<p style='color:#41a3f4' name="topic"><b>Rain level</b></p>
+		<p id="rain">Updating...</p>
+		<div id="chart_div"></div>
+	</body>
+
+</html>
